@@ -1,3 +1,7 @@
+body {
+    color: rgb(20, 219, 20);
+    font-weight: bold;
+}
 ul {
     text-align: center;
 }

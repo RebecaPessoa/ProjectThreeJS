@@ -20,8 +20,8 @@
             </ul>
         </nav>
     </header>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
-    <script>
+    <script type="module">
+        import * as THREE from "./three.module.js";
         // creating the 3 components (scene, camera and renderer)
 
         // ADD SCENE
@@ -76,6 +76,17 @@
 
         // add animation using the variable animate as a function
 
+
+        //window resize:
+        window.addEventListener("resize", redimensionar);
+
+        function redimensionar() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            //método para atualizar a matriz de projeção:
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.render(scene, camera);
+        }
         //create variable for the camera angle
         var i = 0;
         var animate = function () {

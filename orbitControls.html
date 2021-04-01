@@ -74,6 +74,18 @@
         //habilitar a movimentação por todos os eixos
         controls.screenSpacePanning = true;
 
+
+        //window resize:
+        window.addEventListener("resize", redimensionar);
+
+        function redimensionar() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            //método para atualizar a matriz de projeção:
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.render(scene, camera);
+        }
+
         //animation
         var animate = function () {
             requestAnimationFrame(animate);
@@ -86,6 +98,7 @@
 
         animate();
     </script>
+
 </body>
 
 </html>

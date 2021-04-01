@@ -1,0 +1,12 @@
+ul {
+    text-align: center;
+}
+
+li {
+    display: inline;
+    margin: 0px 3px;
+}
+
+a {
+    text-decoration: none;
+}

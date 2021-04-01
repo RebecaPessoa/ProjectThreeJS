@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Cube</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-
 </head>
 
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="perspectiveCamera.html">Perspective Camera</a></li>
+                <li><a href="index.html">Home</a>
+                <li>
                 <li><a href="orthographicCamera.html">Orthographic Camera</a></li>
 
             </ul>
@@ -43,7 +43,14 @@
 
 
         // ADD CAMERA
-        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+        var newcamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 3, 10);
+
+        //add helper camera
+        var helper = new THREE.CameraHelper(newcamera)
+
+        scene.add(helper);
+
         // add renderer
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -55,7 +62,7 @@
         var geometry = new THREE.BoxGeometry(); // create a cube
         var material = new THREE.MeshBasicMaterial({
             color: 0x00ff00,
-            // wireframe: true,
+            wireframe: true,
         }); // the wireframe property is optional
         var cube = new THREE.Mesh(geometry, material);
         //posicionar o objeto
@@ -67,14 +74,28 @@
         //camera.position.z = 5;
 
         // add animation using the variable animate as a function
+
+        //create variable for the camera angle
+        var i = 0;
         var animate = function () {
             requestAnimationFrame(animate);
             // the rotation property
             // at each time it adds 0.01 to the position
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
+            //cube.rotation.x += 0.01;
+            //cube.rotation.y += 0.01;
             // attach scene and camera to render using the render method
             // should be inside the function to be updated at each cycle
+
+
+            //method to rotate towards the camera:
+            camera.lookAt(newcamera.position);
+
+            //add new animation for camera helper:
+            camera.position.x = Math.cos(i) * 30;
+            camera.position.z = Math.sin(i) * 30;
+
+            i += 0.01;
+
             renderer.render(scene, camera);
         }
         // call the function animate

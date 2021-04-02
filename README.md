@@ -14,21 +14,27 @@
 
 * Orbit Controls
 
+* Geometries
+
   
 
 ## Home Page
-![Image from Gyazo](https://i.gyazo.com/4d2d8cecdd3c9650fdeaf9a6f6d709d1.gif)
+[![Image from Gyazo](https://i.gyazo.com/2eaea61397200a7a7942dad32424cedd.gif)](https://gyazo.com/2eaea61397200a7a7942dad32424cedd)
 ## Perspective Camera
 
 
-[![Image from Gyazo](https://i.gyazo.com/bc71a3feef7e7a866153fb382cf16861.gif)](https://gyazo.com/bc71a3feef7e7a866153fb382cf16861)
+[![Image from Gyazo](https://i.gyazo.com/3bb22684456a91b6a54ea878a3db00af.gif)](https://gyazo.com/3bb22684456a91b6a54ea878a3db00af)
 
 ## Orthographic Camera
 
 
-[![Image from Gyazo](https://i.gyazo.com/3fdfb020487c86d46c363534c3f42db3.gif)](https://gyazo.com/3fdfb020487c86d46c363534c3f42db3)
+[![Image from Gyazo](https://i.gyazo.com/035ba04a656b6790f203be271f9b5038.gif)](https://gyazo.com/035ba04a656b6790f203be271f9b5038)
 
 ## Orbit Controls
 
 
-[![Image from Gyazo](https://i.gyazo.com/139680489e10350daa90665a01319341.gif)](https://gyazo.com/139680489e10350daa90665a01319341)
+[![Image from Gyazo](https://i.gyazo.com/720962a24a03cccace95c9d7c1bb29e0.gif)](https://gyazo.com/720962a24a03cccace95c9d7c1bb29e0)
+
+## Geometries
+
+[![Image from Gyazo](https://i.gyazo.com/3d9754c7faee435e4794571933676c4d.gif)](https://gyazo.com/3d9754c7faee435e4794571933676c4d)

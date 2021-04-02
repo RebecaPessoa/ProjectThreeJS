@@ -14,7 +14,7 @@
 
 * Orbit Controls
 
-* Geometries
+* Geometries Control
 
   
 

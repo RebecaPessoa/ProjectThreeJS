@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Cube</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home |</li>
+                <li><a href="perspectiveCamera.html">Perspective Camera |</a></li>
+                <li><a href="orthographicCamera.html">Orthographic Camera |</a></li>
+                <li><a href="orbitControls.html">Orbit Controls</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+    <script type="module">
+        import * as THREE from "./three.module.js";
+        import { OrbitControls } from "./OrbitControls.js";
+
+        //creating scene
+        var scene = new THREE.Scene();
+        //scene.background = new THREE.Color(0x2a3b4c);
+
+        //add camera
+        var camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight
+        );
+
+        //renderer
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        //add geometry
+        var geometry = new THREE.BoxGeometry(2, 2, 2, 5, 5, 5);//base, altura, largura, e quantidade de divisões
+        var material = new THREE.MeshBasicMaterial({
+            color: 0x00ff00,
+            wireframe: true,
+        });
+        var object = new THREE.Mesh(geometry, material);
+        scene.add(object);
+
+        var object = new THREE.Mesh(
+            new THREE.CircleGeometry(1.5, 32, 0, Math.PI),//raio, segmentos, ângulo de início, ângulo de fim
+            material
+        );
+        object.position.x = 5;
+        scene.add(object);
+
+        var object = new THREE.Mesh(
+            new THREE.ConeGeometry(1, 3, 32, 5, true, 0, Math.PI),//raio de base. altura, segmentos radiais, 
+            //segmentos de altura, boolean de base, ângulo que começa, ângulo que termina
+            material
+        );
+        object.position.x = -5;
+        scene.add(object);
+
+        var object = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.5, 0.5, 3, 32, 10, true), //raio inferior, raio superior, altura, 
+            //segmentos radiais, segmentos de altura, boolean de bases, ângulo que começa, ângulo que termina
+            material
+        );
+        object.position.y = 5;
+        scene.add(object);
+
+        var object = new THREE.Mesh(
+            new THREE.PlaneGeometry(2, 2, 3, 5), //altura, largura, segmentos de altura, segmentos de largura
+            material
+        );
+        object.position.y = -5;
+        scene.add(object);
+
+        var object = new THREE.Mesh(new THREE.TetrahedronGeometry(2), material);//raio da esfera que o circunda,
+        //deformidade
+        object.position.x = -5;
+        object.position.y = 5;
+        scene.add(object);
+
+        var object = new THREE.Mesh(
+            new THREE.SphereGeometry(1.5, 32, 32), //raio, segmentos radiais, segmentos de altura, ângulo que começa,
+            //ângulo que termina, modificadores de altura
+            material
+        );
+        object.position.x = 5;
+        object.position.y = 5;
+        scene.add(object);
+
+        var object = new THREE.Mesh(
+            new THREE.TorusGeometry(1, 0.5, 32, 32, Math.PI), //raio de centro, raio de tubo, segmentos radiais, segmentos
+            //longitudinais
+            material
+        );
+        object.position.x = -5;
+        object.position.y = -5;
+        scene.add(object);
+
+        var object = new THREE.Mesh(
+            new THREE.RingGeometry(0.3, 1.5, 32, 5), //diâmetro interno, raio externo,vsegmentos radiais, segmentos longitudinais
+            //ângulo que começa, ângulo que termina
+            material
+        );
+        object.position.x = 5;
+        object.position.y = -5;
+        scene.add(object);
+
+        camera.position.z = 15;
+
+        var controls = new OrbitControls(camera, renderer.domElement);
+
+        window.addEventListener("resize", redimensionar);
+
+        function redimensionar() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.render(scene, camera);
+        }
+
+        //animation
+        var animate = function () {
+            requestAnimationFrame(animate);
+
+            scene.traverse(function (object) {
+                //somente objetos irão rotacionar
+                if (object.isMesh === true) {
+                    object.rotation.x += 0.01;
+                    object.rotation.y += 0.01;
+                }
+            });
+
+            //cube.rotation.x += 0.01;
+            //cube.rotation.y += 0.01;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+    </script>
+</body>
+
+</html>

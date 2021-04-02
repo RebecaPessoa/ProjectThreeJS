@@ -36,5 +36,5 @@
 [![Image from Gyazo](https://i.gyazo.com/720962a24a03cccace95c9d7c1bb29e0.gif)](https://gyazo.com/720962a24a03cccace95c9d7c1bb29e0)
 
 ## Geometries
+![geometries](https://user-images.githubusercontent.com/4651221/113455518-34effd80-93e1-11eb-9c13-eb6fcf33d381.gif)
 
-[![Image from Gyazo](https://i.gyazo.com/3d9754c7faee435e4794571933676c4d.gif)](https://gyazo.com/3d9754c7faee435e4794571933676c4d)
